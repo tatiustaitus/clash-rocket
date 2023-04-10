@@ -6,6 +6,8 @@ type Option = {
   value: string;
   icon?: JSX.Element;
   onClick?: () => void;
+  disabled?: boolean;
+  disabledLabel?: string;
 };
 
 type ButtonGroupProps = {
@@ -13,11 +15,18 @@ type ButtonGroupProps = {
 };
 
 const ButtonGroup: React.FC<ButtonGroupProps> = ({ options }) => {
+  const onClick = (option: Option) => {
+    if (!option.disabled) {
+      option.onClick?.();
+    }
+  };
+
   return (
     <div className="inline-flex rounded-md shadow-sm" role="group">
       {options.map((option, index) => (
         <button
-          onClick={option.onClick}
+          disabled={option.disabled}
+          onClick={() => onClick(option)}
           key={`option-${index}`}
           type="button"
           className={classNames(
@@ -26,11 +35,16 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({ options }) => {
             {
               "rounded-l-md": index === 0 && index !== options.length - 1,
               "rounded-r-md": index === options.length - 1 && index !== 0,
+            },
+            {
+              "cursor-not-allowed": option.disabled,
+              "bg-gray-300": option.disabled,
+              "dark:bg-gray-700": option.disabled,
             }
           )}
         >
           {option.icon && option.icon}
-          {option.label}
+          {option.disabled ? option.disabledLabel : option.label}
         </button>
       ))}
     </div>

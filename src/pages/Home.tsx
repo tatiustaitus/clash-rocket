@@ -1,13 +1,13 @@
-import { ResponseType, fetch } from "@tauri-apps/api/http";
 import { useState } from "react";
 import ButtonGroup from "../components/ButtonGroup/ButtonGroup";
 import ServersTable from "../components/ServersTable/ServersTable";
 import StatusCards from "../components/StatusCards/StatusCards";
 import { AddProfileModal } from "../components/Modals/AddProfileModal";
+import { fetchProfile, useProfileStore } from "../store/Profile.store";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const isFetchingProfile = useProfileStore((state) => state.isFetchingProfile);
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -16,15 +16,9 @@ const Home = () => {
     setIsModalOpen(false);
   };
 
-  const fetchProfile = async (url: string) => {
+  const getProfile = async (url: string) => {
     closeModal();
-    console.info("fetching", url);
-    const rawData = await fetch(url, {
-      method: "GET",
-      responseType: ResponseType.Text,
-    });
-    const data = rawData.data;
-    console.info("data", data);
+    fetchProfile(url);
   };
 
   return (
@@ -35,14 +29,16 @@ const Home = () => {
         <AddProfileModal
           isOpen={isModalOpen}
           onClose={closeModal}
-          onSave={fetchProfile}
+          onSave={getProfile}
         />
         <ButtonGroup
           options={[
             {
               onClick: openModal,
-              label: "Add a server",
-              value: "add-server",
+              label: "Add a profile",
+              value: "add-profile",
+              disabled: isFetchingProfile,
+              disabledLabel: "Downloading profile...",
               icon: (
                 <svg
                   fill="none"
