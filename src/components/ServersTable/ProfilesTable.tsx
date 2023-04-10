@@ -1,6 +1,6 @@
 import React from "react";
 
-const ServersTable: React.FC = () => {
+const ProfilesTable: React.FC = () => {
   return (
     <>
       <div className="relative overflow-x-auto sm:rounded-lg">
@@ -354,4 +354,4 @@ const ServersTable: React.FC = () => {
   );
 };
 
-export { ServersTable };
+export { ProfilesTable };

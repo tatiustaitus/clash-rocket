@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ServersTable } from "../components/ServersTable/ServersTable";
+import { ProfilesTable } from "../components/ServersTable/ProfilesTable";
 import { StatusCards } from "../components/StatusCards/StatusCards";
 import { AddProfileModal } from "../components/Modals/AddProfileModal";
 import { addNewProfile } from "../store/Profile.store";
@@ -35,7 +35,7 @@ const Home = () => {
 
         <div className="mt-5" />
 
-        <ServersTable />
+        <ProfilesTable />
       </div>
     </>
   );
