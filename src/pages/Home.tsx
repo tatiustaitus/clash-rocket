@@ -1,6 +1,6 @@
 import { useState } from "react";
-import ServersTable from "../components/ServersTable/ServersTable";
-import StatusCards from "../components/StatusCards/StatusCards";
+import { ServersTable } from "../components/ServersTable/ServersTable";
+import { StatusCards } from "../components/StatusCards/StatusCards";
 import { AddProfileModal } from "../components/Modals/AddProfileModal";
 import { addNewProfile } from "../store/Profile.store";
 import { HomeButtonGroup } from "../components/ButtonGroup/HomeButtonGroup";

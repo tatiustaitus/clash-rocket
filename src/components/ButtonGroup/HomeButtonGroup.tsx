@@ -1,6 +1,6 @@
 import React from "react";
 import { useProfileStore } from "../../store/Profile.store";
-import ButtonGroup from "./ButtonGroup";
+import { ButtonGroup } from "./ButtonGroup";
 
 type HomeButtonGroupProps = {
   onAddProfile: () => void;

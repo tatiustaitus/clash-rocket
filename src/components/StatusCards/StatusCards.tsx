@@ -115,4 +115,4 @@ const StatusCards: React.FC = () => {
   );
 };
 
-export default StatusCards;
+export { StatusCards };

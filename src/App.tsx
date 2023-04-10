@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 import { animated, useTransition } from "react-spring";
 import { listen } from "@tauri-apps/api/event";
 
-import Dashboard from "./pages/Dashboard";
+import { Dashboard } from "./pages/Dashboard";
 import { Home } from "./pages/Home";
-import Settings from "./pages/Settings";
-import Sidebar from "./components/Sidebar";
+import { Settings } from "./pages/Settings";
+import { Sidebar } from "./components/Sidebar";
 
 import "./styles/tailwind.css";
 
@@ -78,4 +78,4 @@ function App(): JSX.Element {
   );
 }
 
-export default App;
+export { App };

@@ -100,4 +100,4 @@ const Sidebar = ({ views, activeView, onViewChange }: SidebarProps) => {
   );
 };
 
-export default Sidebar;
+export { Sidebar };

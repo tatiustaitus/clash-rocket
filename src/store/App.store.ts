@@ -23,4 +23,4 @@ const useAppStore = create<AppStore>((set) => ({
     })),
 }));
 
-export default useAppStore;
+export { useAppStore };

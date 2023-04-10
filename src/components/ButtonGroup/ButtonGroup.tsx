@@ -51,4 +51,4 @@ const ButtonGroup: React.FC<ButtonGroupProps> = ({ options }) => {
   );
 };
 
-export default ButtonGroup;
+export { ButtonGroup };

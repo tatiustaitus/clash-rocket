@@ -354,4 +354,4 @@ const ServersTable: React.FC = () => {
   );
 };
 
-export default ServersTable;
+export { ServersTable };
