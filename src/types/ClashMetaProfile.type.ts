@@ -80,7 +80,8 @@ export enum Network {
 export enum Type {
   Trojan = "trojan",
   Vless = "vless",
-  Vmess = "vless",
+  Vmess = "vmess",
+  Ss = "ss",
 }
 
 export type WsOpts = {
