@@ -1,0 +1,120 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "clash-rocket",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": true,
+      "http": {
+        "all": true,
+        "request": true,
+        "scope": ["https://**", "http://**"]
+      },
+      "path": {
+        "all": true
+      },
+      "fs": {
+        "all": true,
+        "readFile": true,
+        "writeFile": true,
+        "readDir": true,
+        "copyFile": true,
+        "createDir": true,
+        "removeDir": true,
+        "removeFile": true,
+        "renameFile": true,
+        "exists": true,
+        "scope": [
+          "$APPCONFIG",
+          "$APPDATA",
+          "$APPLOCALDATA",
+          "$APPLOCALDATA/config.json",
+          "$APPCACHE",
+          "$APPLOG",
+          "$AUDIO",
+          "$CACHE",
+          "$CONFIG",
+          "$DATA",
+          "$LOCALDATA",
+          "$DESKTOP",
+          "$DOCUMENT",
+          "$DOWNLOAD",
+          "$EXE",
+          "$FONT",
+          "$HOME",
+          "$PICTURE",
+          "$PUBLIC",
+          "$RUNTIME",
+          "$TEMPLATE",
+          "$VIDEO",
+          "$RESOURCE",
+          "$APP",
+          "$LOG",
+          "$TEMP"
+        ]
+      },
+      "window": {
+        "all": true
+      },
+      "process": {
+        "all": true
+      },
+      "globalShortcut": {
+        "all": true
+      },
+      "shell": {
+        "all": true,
+        "open": true,
+        "sidecar": true,
+        "scope": [
+          {
+            "name": "sidecar/clash-meta",
+            "sidecar": true,
+            "args": [
+              "-f",
+              {
+                "validator": "\\S+"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "bundle": {
+      "active": true,
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "identifier": "com.clashrocket.dev",
+      "targets": "all",
+      "externalBin": ["sidecar/clash-meta"]
+    },
+    "security": {
+      "csp": null
+    },
+    "updater": {
+      "active": false
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "clash-rocket",
+        "width": 1200,
+        "height": 800
+      }
+    ]
+  }
+}
