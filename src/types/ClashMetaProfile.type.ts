@@ -53,6 +53,7 @@ export type Proxy = {
 
 export enum Alpn {
   H2 = "h2",
+  H3 = "h3",
   HTTP11 = "http/1.1",
 }
 
@@ -75,13 +76,22 @@ export enum Network {
   H2 = "h2",
   HTTP = "http",
   Ws = "ws",
+  TCP = "tcp",
+  UDP = "udp",
 }
 
 export enum Type {
+  Shadowsocks = "ss",
+  ShadowsocksR = "ssr",
+  vmess = "vmess",
+  Socks = "socks5",
+  HTTP = "http",
+  VLESS = "vless",
+  Snell = "snell",
   Trojan = "trojan",
-  Vless = "vless",
-  Vmess = "vmess",
-  Ss = "ss",
+  Hysteria = "hysteria",
+  Tuic = "tuic",
+  Wireguard = "wireguard",
 }
 
 export type WsOpts = {
