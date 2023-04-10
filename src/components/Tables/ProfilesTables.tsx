@@ -31,7 +31,7 @@ const ProfilesTable: React.FC = () => {
   const isFetchingProfile = useProfileStore((state) => state.isFetchingProfile);
 
   return (
-    <div className="relative overflow-x-auto sm:rounded-lg">
+    <div className="relative overflow-x-auto sm:rounded-lg border">
       {profiles.length === 0 && (
         <div className="flex p-16 align-middle justify-center text-sm">
           {isFetchingProfile ? (
@@ -50,9 +50,11 @@ const ProfilesTable: React.FC = () => {
       )}
       {profiles.map((profile) => (
         <div key={profile.url}>
-          <h3 className="text-sm mb-5 text-gray-800">{profile.domainName}</h3>
+          <h3 className="text-sm font-medium text-gray-800 px-6 py-3">
+            {profile.domainName}
+          </h3>
           <table className="w-full text-sm text-left text-gray-800 dark:text-gray-200">
-            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   Name
@@ -75,7 +77,7 @@ const ProfilesTable: React.FC = () => {
               {profile.data?.proxies?.map((proxy) => (
                 <tr
                   key={proxy.name}
-                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                  className="border-b dark:bg-gray-800 dark:border-gray-700"
                 >
                   <td className="px-6 py-1">{proxy.name}</td>
                   <td className="px-6 py-1">
