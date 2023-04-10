@@ -3,7 +3,7 @@ import ButtonGroup from "../components/ButtonGroup/ButtonGroup";
 import ServersTable from "../components/ServersTable/ServersTable";
 import StatusCards from "../components/StatusCards/StatusCards";
 import { AddProfileModal } from "../components/Modals/AddProfileModal";
-import { fetchProfile, useProfileStore } from "../store/Profile.store";
+import { addNewProfile, useProfileStore } from "../store/Profile.store";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,7 +18,7 @@ const Home = () => {
 
   const getProfile = async (url: string) => {
     closeModal();
-    fetchProfile(url);
+    addNewProfile(url);
   };
 
   return (

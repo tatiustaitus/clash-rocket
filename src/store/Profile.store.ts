@@ -1,11 +1,13 @@
 import { create } from "zustand";
 import { persist, devtools } from "zustand/middleware";
 import { ResponseType, fetch } from "@tauri-apps/api/http";
+import { parseProfileYaml } from "../utils/Yaml.util";
+import { ClashMetaProfile } from "../types/ClashMetaProfile.type";
 
 type Profile = {
   url: string;
-  yaml: string | null;
-  proxies: any[] | null;
+  yaml: string;
+  data: ClashMetaProfile;
 };
 
 type ProfileState = {
@@ -20,7 +22,7 @@ type ProfileState = {
 
 export const useProfileStore = create<ProfileState>()(
   devtools(
-    persist<ProfileState>(
+    persist(
       (set) => ({
         profiles: [],
         currentProfile: null,
@@ -45,19 +47,33 @@ export const useProfileStore = create<ProfileState>()(
       }),
       {
         name: "clash-rocket-storage",
+        partialize: (state) => ({
+          profiles: state.profiles,
+          currentProfile: state.currentProfile,
+        }),
       }
     )
   )
 );
 
-export const fetchProfile = async (url: string) => {
-  const { setIsFetchingProfile } = useProfileStore.getState();
+export const addNewProfile = async (url: string) => {
+  const { setIsFetchingProfile, addProfile } = useProfileStore.getState();
   setIsFetchingProfile(true);
-  const rawData = await fetch(url, {
-    method: "GET",
-    responseType: ResponseType.Text,
-  });
+  try {
+    const rawData = await fetch<string>(url, {
+      method: "GET",
+      responseType: ResponseType.Text,
+    });
+    const profileRawYaml = rawData.data;
+    const profileData = parseProfileYaml(profileRawYaml);
+    addProfile({
+      url,
+      yaml: profileRawYaml,
+      data: profileData,
+    });
+  } catch (error) {
+    // @todo: add a toast/notification feature
+    console.warn("Failed to add profile", error);
+  }
   setIsFetchingProfile(false);
-  const data = rawData.data;
-  console.info("data", data);
 };
