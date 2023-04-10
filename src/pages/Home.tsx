@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ProfilesTable } from "../components/ServersTable/ProfilesTable";
+import { ProfilesTable } from "../components/Tables/ProfilesTables";
 import { StatusCards } from "../components/StatusCards/StatusCards";
 import { AddProfileModal } from "../components/Modals/AddProfileModal";
 import { addNewProfile } from "../store/Profile.store";

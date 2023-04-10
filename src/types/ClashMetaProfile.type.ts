@@ -2,7 +2,7 @@ export type ClashMetaProfile = {
   "mixed-port"?: number;
   "allow-lan"?: boolean;
   "log-level"?: string;
-  secret?: null;
+  secret?: string | null;
   "external-controller"?: string;
   ipv6?: boolean;
   mode?: string;
@@ -80,6 +80,7 @@ export enum Network {
 export enum Type {
   Trojan = "trojan",
   Vless = "vless",
+  Vmess = "vless",
 }
 
 export type WsOpts = {

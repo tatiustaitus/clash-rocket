@@ -5,6 +5,7 @@ import { parseProfileYaml } from "../utils/Yaml.util";
 import { ClashMetaProfile } from "../types/ClashMetaProfile.type";
 
 type Profile = {
+  domainName: string;
   url: string;
   yaml: string;
   data: ClashMetaProfile;
@@ -67,6 +68,7 @@ export const addNewProfile = async (url: string) => {
     const profileRawYaml = rawData.data;
     const profileData = parseProfileYaml(profileRawYaml);
     addProfile({
+      domainName: new URL(url).hostname,
       url,
       yaml: profileRawYaml,
       data: profileData,
