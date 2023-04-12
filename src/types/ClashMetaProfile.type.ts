@@ -83,10 +83,10 @@ export enum Network {
 export enum Type {
   Shadowsocks = "ss",
   ShadowsocksR = "ssr",
-  vmess = "vmess",
+  Vmess = "vmess",
   Socks = "socks5",
-  HTTP = "http",
-  VLESS = "vless",
+  Http = "http",
+  Vless = "vless",
   Snell = "snell",
   Trojan = "trojan",
   Hysteria = "hysteria",

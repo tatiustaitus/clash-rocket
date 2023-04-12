@@ -1,35 +1,27 @@
 import React from "react";
 import { useProfileStore } from "../../store/Profile.store";
 import { Type } from "../../types/ClashMetaProfile.type";
+import classNames from "classnames";
 
-const getProxyTypeLabelClassNames = (type: Type = Type.Vmess): string => {
-  const classNames = ["text-xs font-medium mr-2 px-2.5 py-0.5 rounded"];
-
-  if (type === Type.Trojan) {
-    classNames.push(
-      "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-300"
-    );
-  }
-
-  if (type === Type.Vless) {
-    classNames.push(
-      "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-    );
-  }
-
-  if (type === Type.Vmess) {
-    classNames.push(
-      "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-    );
-  }
-
-  if (type === Type.Ss) {
-    classNames.push(
-      "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300"
-    );
-  }
-
-  return classNames.join(" ");
+const proxyTypeLabelMap: Record<Type, string> = {
+  [Type.Shadowsocks]:
+    "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300",
+  [Type.ShadowsocksR]:
+    "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300",
+  [Type.Vmess]:
+    "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300",
+  [Type.Socks]:
+    "bg-violet-100 text-violet-800 dark:bg-violet-900 dark:text-violet-300",
+  [Type.Http]:
+    "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300",
+  [Type.Vless]: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300",
+  [Type.Snell]: "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300",
+  [Type.Trojan]:
+    "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-300",
+  [Type.Hysteria]:
+    "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300",
+  [Type.Tuic]: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-300",
+  [Type.Wireguard]: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300",
 };
 
 const ProfilesTable: React.FC = () => {
@@ -91,7 +83,12 @@ const ProfilesTable: React.FC = () => {
                   >
                     <td className="px-6 py-1">{proxy.name}</td>
                     <td className="px-6 py-1">
-                      <span className={getProxyTypeLabelClassNames(proxy.type)}>
+                      <span
+                        className={classNames(
+                          "text-xs font-medium mr-2 px-2.5 py-0.5 rounded",
+                          proxyTypeLabelMap[proxy.type || Type.Http]
+                        )}
+                      >
                         {proxy.type}
                       </span>
                     </td>
