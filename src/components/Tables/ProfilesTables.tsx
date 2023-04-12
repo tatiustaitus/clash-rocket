@@ -2,6 +2,7 @@ import React from "react";
 import { useProfileStore } from "../../store/Profile.store";
 import { Type } from "../../types/ClashMetaProfile.type";
 import classNames from "classnames";
+import { Icons } from "../Icons";
 
 const proxyTypeLabelMap: Record<Type, string> = {
   [Type.Shadowsocks]:
@@ -26,6 +27,7 @@ const proxyTypeLabelMap: Record<Type, string> = {
 
 const ProfilesTable: React.FC = () => {
   const profiles = useProfileStore((state) => state.profiles);
+  const removeProfile = useProfileStore((state) => state.removeProfile);
   const isFetchingProfile = useProfileStore((state) => state.isFetchingProfile);
 
   return (
@@ -52,9 +54,15 @@ const ProfilesTable: React.FC = () => {
       <div className="relative overflow-x-auto sm:rounded-lg border">
         {profiles.map((profile) => (
           <div key={profile.url}>
-            <h3 className="text-sm font-medium text-gray-800 px-6 py-3">
-              {profile.domainName}
-            </h3>
+            <div className="flex justify-between items-center px-6 py-3">
+              <h3 className="text-sm font-medium text-gray-800 ">
+                {profile.domainName}
+              </h3>
+              <Icons.Trash
+                className="w-6 h-6 cursor-pointer"
+                onClick={() => removeProfile(profile)}
+              />
+            </div>
             <table className="w-full text-sm text-left text-gray-800 dark:text-gray-200">
               <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
                 <tr>
