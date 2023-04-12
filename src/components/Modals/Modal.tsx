@@ -9,6 +9,7 @@ type ModalProps = {
 };
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+  const modalRoot = useRef(document.getElementById("modal-root"));
   const modalRef = useRef<HTMLDivElement>(document.createElement("div"));
 
   useEffect(() => {
@@ -63,6 +64,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     { hidden: !isOpen }
   );
 
+  if (!modalRoot.current) {
+    return null;
+  }
+
   return ReactDOM.createPortal(
     <>
       <div className={overlayClasses} onClick={onClose} aria-hidden={!isOpen} />
@@ -78,7 +83,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
         </div>
       </div>
     </>,
-    document.getElementById("modal-root")!
+    modalRoot.current
   );
 };
 
