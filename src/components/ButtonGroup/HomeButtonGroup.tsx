@@ -1,5 +1,5 @@
 import React from "react";
-import { useProfileStore } from "../../store/Profile.store";
+import { useProfileStore } from "@/store/Profile.store";
 import { ButtonGroup } from "./ButtonGroup";
 
 type HomeButtonGroupProps = {

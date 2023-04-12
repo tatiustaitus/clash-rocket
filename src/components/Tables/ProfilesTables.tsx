@@ -1,6 +1,6 @@
 import React from "react";
-import { useProfileStore } from "../../store/Profile.store";
-import { Type } from "../../types/ClashMetaProfile.type";
+import { useProfileStore } from "@/store/Profile.store";
+import { Type } from "@/types/ClashMetaProfile.type";
 import classNames from "classnames";
 import { Icons } from "../Icons";
 

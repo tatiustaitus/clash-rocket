@@ -4,6 +4,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import eslintPlugin from "vite-plugin-eslint";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 const mobile =
   process.env.TAURI_PLATFORM === "android" ||
@@ -11,7 +12,7 @@ const mobile =
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [react(), eslintPlugin()],
+  plugins: [react(), eslintPlugin(), tsconfigPaths()],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   // prevent vite from obscuring rust errors

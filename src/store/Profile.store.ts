@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import { persist, devtools } from "zustand/middleware";
 import { ResponseType, fetch } from "@tauri-apps/api/http";
-import { parseProfileYaml } from "../utils/Yaml.util";
-import { ClashMetaProfile } from "../types/ClashMetaProfile.type";
+import { parseProfileYaml } from "@/utils/Yaml.util";
+import { ClashMetaProfile } from "@/types/ClashMetaProfile.type";
 
 type Profile = {
   domainName: string;
