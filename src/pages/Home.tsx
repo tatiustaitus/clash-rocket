@@ -30,11 +30,8 @@ const Home = () => {
           onClose={closeAddProfileModal}
           onSave={getProfile}
         />
-
         <HomeButtonGroup onAddProfile={openAddProfileModal} />
-
         <div className="mt-5" />
-
         <ProfilesTable />
       </div>
     </>

@@ -5,7 +5,7 @@ const StatusCards: React.FC = () => {
     <div className="w-full">
       <div className="grid grid-cols-12 md:grid-cols-6 lg:grid-cols-12 gap-4">
         <div className="col-span-12 sm:col-span-6 md:col-span-3">
-          <div className="flex flex-row bg-white shadow-sm rounded p-4 dark:bg-gray-800">
+          <div className="flex flex-row bg-white shadow-sm rounded p-4 dark:bg-zinc-800">
             <div className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-blue-100 text-blue-500 dark:bg-blue-500 dark:text-blue-100">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ const StatusCards: React.FC = () => {
           </div>
         </div>
         <div className="col-span-12 sm:col-span-6 md:col-span-3">
-          <div className="flex flex-row bg-white shadow-sm rounded p-4 dark:bg-gray-800">
+          <div className="flex flex-row bg-white shadow-sm rounded p-4 dark:bg-zinc-800">
             <div className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-green-100 text-green-500 dark:bg-green-500 dark:text-green-100">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@ const StatusCards: React.FC = () => {
           </div>
         </div>
         <div className="col-span-12 sm:col-span-6 md:col-span-3">
-          <div className="flex flex-row bg-white shadow-sm rounded p-4 dark:bg-gray-800">
+          <div className="flex flex-row bg-white shadow-sm rounded p-4 dark:bg-zinc-800">
             <div className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-orange-100 text-orange-500 dark:bg-orange-500 dark:text-orange-100">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +85,7 @@ const StatusCards: React.FC = () => {
           </div>
         </div>
         <div className="col-span-12 sm:col-span-6 md:col-span-3">
-          <div className="flex flex-row bg-white shadow-sm rounded p-4 dark:bg-gray-800">
+          <div className="flex flex-row bg-white shadow-sm rounded p-4 dark:bg-zinc-800">
             <div className="flex items-center justify-center flex-shrink-0 h-12 w-12 rounded-xl bg-red-100 text-red-500 dark:bg-red-500 dark:text-red-100">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

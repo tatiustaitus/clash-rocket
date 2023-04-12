@@ -71,7 +71,7 @@ function App(): JSX.Element {
         activeView={activeView}
         onViewChange={(newView: string) => setActiveView(newView as AppView)}
       />
-      <div className="flex-1 h-screen overflow-y-auto ">
+      <div className="flex-1 h-screen overflow-y-auto dark:bg-zinc-900">
         <PageWrapper>{views[activeView]}</PageWrapper>
       </div>
     </div>

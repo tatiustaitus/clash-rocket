@@ -35,7 +35,7 @@ const ProfilesTable: React.FC = () => {
       {isFetchingProfile && (
         <div className="flex p-16 align-middle justify-center text-sm">
           <div
-            className="text-gray-800 inline-block h-8 w-8 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            className="text-zinc-800 inline-block h-8 w-8 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
             role="status"
           >
             <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
@@ -51,15 +51,13 @@ const ProfilesTable: React.FC = () => {
         </div>
       )}
 
-      <div className="relative overflow-x-auto sm:rounded-lg border">
+      <div className="relative overflow-x-auto sm:rounded-lg border dark:border-zinc-700">
         {profiles.map((profile) => (
-          <div key={profile.url}>
-            <div className="flex justify-between items-center px-6 py-3">
-              <h3 className="text-sm font-medium text-gray-800 ">
-                {profile.domainName}
-              </h3>
+          <div key={profile.url} className=" dark:bg-zinc-800">
+            <div className="flex justify-between items-center px-6 py-3 text-zinc-800 dark:text-zinc-200">
+              <h3 className="text-sm font-medium">{profile.domainName}</h3>
               <Icons.Trash
-                className="w-6 h-6 cursor-pointer"
+                className="w-6 h-6 cursor-pointer text-current"
                 onClick={() => removeProfile(profile)}
               />
             </div>
@@ -87,7 +85,7 @@ const ProfilesTable: React.FC = () => {
                 {profile.data?.proxies?.map((proxy) => (
                   <tr
                     key={proxy.name}
-                    className="border-b dark:bg-gray-800 dark:border-gray-700"
+                    className="border-b dark:bg-zinc-800 dark:border-zinc-700"
                   >
                     <td className="px-6 py-1">{proxy.name}</td>
                     <td className="px-6 py-1">
@@ -115,7 +113,7 @@ const ProfilesTable: React.FC = () => {
                           value=""
                           className="sr-only peer"
                         />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                        <div className="w-11 h-6 bg-zinc-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                       </label>
                     </td>
                   </tr>

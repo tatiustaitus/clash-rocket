@@ -58,6 +58,8 @@ const Sidebar = ({ views, activeView, onViewChange }: SidebarProps) => {
       <div
         className={cx(
           "bg-gray-800",
+          "dark:bg-black",
+          "bg-red",
           "py-4",
           "px-6",
           "h-screen",
